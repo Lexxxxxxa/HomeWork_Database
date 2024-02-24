@@ -1,9 +1,6 @@
 ﻿using HomeWork_Database.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HomeWork_Database.AuthAndReg
 {
@@ -40,6 +37,23 @@ namespace HomeWork_Database.AuthAndReg
 
             Console.WriteLine("Неправильне ім'я користувача або пароль.");
             return false;
+        }
+
+        public bool IsLibrarian(string username)
+        {
+            return librarians.Any(librarian => librarian.Email == username);
+        }
+        public int? GetUserId(string username)
+        {
+            var reader = readers.FirstOrDefault(r => r.Phone == username);
+            if (reader != null)
+            {
+                return reader.CustomerId;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

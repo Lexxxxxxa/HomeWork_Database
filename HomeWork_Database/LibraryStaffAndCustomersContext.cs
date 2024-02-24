@@ -30,6 +30,7 @@ public partial class LibraryStaffAndCustomersContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
         modelBuilder.Entity<Book>(entity =>
         {
             entity.HasKey(e => e.BookId).HasName("PK__Book__8BE5A10D88D898AD");
